@@ -66,10 +66,73 @@
 //   ])
 // ); // 54
 
+// Разница между списком целых чисел
+// Найдите разницу между двумя списками целых чисел [1, 3, 3, 4, 6, 5, 4] и [6, 3, 5, 2, 2]
+// Функциональные требования
+// Реализуйте логику, которая находит разницу между «первым» и «вторым» списками и выводит результат на консоль. Если вы нашли несколько решений, используйте All.
+// Ожидаемый вывод консоли:
+// [1, 2, 4]
+
 const first = [1, 3, 3, 4, 6, 5, 4];
 const second = [6, 3, 5, 2, 2];
 
-// Implement a logic that finds difference between "first" and "secord" lists
-// and prints the result to the console:
-// [1, 2, 4]
-// найти разницу между первым и вторым
+// Найдите уникальные элементы из 2х массивов [1, 3, 3, 4, 6, 5, 4] и [6, 3, 5, 2, 2]
+
+// Перебираем первый массив и проверяем есть ли элемент во втором массиве
+// Если нет, то добавляем в новый массив
+// Если есть, то пропускаем
+
+// Решение 1
+
+// const unique = [];
+
+// for (let i = 0; i < first.length; i += 1) {
+//   if (!second.includes(first[i])) {
+//     unique.push(first[i]);
+//   }
+// }
+// console.log(unique); // [1, 2, 4]
+
+// // 2. Перебираем второй массив и проверяем есть ли элемент в первом массиве
+// // Если нет, то добавляем в новый массив
+// // Если есть, то пропускаем
+
+// for (let i = 0; i < second.length; i += 1) {
+//   if (!first.includes(second[i])) {
+//     unique.push(second[i]);
+//   }
+// }
+// console.log(unique); // [1, 2, 4, 2]
+
+// // Удаляем дубликати с массива unique и сортируем его по возрастанию
+
+// const uniqueSorted = unique
+//   .filter((item, index) => unique.indexOf(item) === index)
+//   .sort((a, b) => a - b);
+// console.log(uniqueSorted); // [1, 2, 4]
+
+// Решение 2
+
+// const unique1 = first.filter((item) => !second.includes(item));
+
+// const unique2 = second.filter((item) => !first.includes(item));
+
+// const unique = [...unique1, ...unique2].sort((a, b) => a - b);
+// // удалить дубликаты
+// const uniqueSorted = unique.filter(
+//   (item, index) => unique.indexOf(item) === index
+// );
+// console.log(uniqueSorted); // [1, 2, 4]
+
+// Решение 3 через функцію
+
+// function getUnique(arr1, arr2) {
+//   const unique = arr1.filter((item) => !arr2.includes(item));
+//   const unique2 = arr2.filter((item) => !arr1.includes(item));
+//   const uniqueSorted = [...unique, ...unique2].sort((a, b) => a - b);
+//   return uniqueSorted.filter(
+//     (item, index) => uniqueSorted.indexOf(item) === index
+//   );
+// }
+
+// console.log(getUnique(first, second)); // [1, 2, 4]
