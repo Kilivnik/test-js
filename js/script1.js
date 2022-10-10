@@ -65,74 +65,161 @@
 //     [3, 9],
 //   ])
 // ); // 54
+/* Модуль 1 - Переменные, типы данных, операторы, ветвления, циклы */
 
-// Разница между списком целых чисел
-// Найдите разницу между двумя списками целых чисел [1, 3, 3, 4, 6, 5, 4] и [6, 3, 5, 2, 2]
-// Функциональные требования
-// Реализуйте логику, которая находит разницу между «первым» и «вторым» списками и выводит результат на консоль. Если вы нашли несколько решений, используйте All.
-// Ожидаемый вывод консоли:
-// [1, 2, 4]
+/* Задача 1
+Метод window.confirm(); выводит диалоговое окно с текстом
+Код не продолжает работу пока пользователь не нажмет кнопку "ОК"
+на место вызова метода вернеся true или false в зависимости от того
+какой кнопкой пользователь закрыл окно
 
-const first = [1, 3, 3, 4, 6, 5, 4];
-const second = [6, 3, 5, 2, 2];
+const shouldRenew = confirm("Хотите продлить подписку?");
+console.log(shouldRenew); // true или false */
 
-// Найдите уникальные элементы из 2х массивов [1, 3, 3, 4, 6, 5, 4] и [6, 3, 5, 2, 2]
+/* Задача 2
+Метод window.prompt(); который хочет получить от пользователя минимальный вывод 
+Метод блокирует код до тех пор пока пользователь не введет данные и не нажмет кнопку "ОК"
 
-// Перебираем первый массив и проверяем есть ли элемент во втором массиве
-// Если нет, то добавляем в новый массив
-// Если есть, то пропускаем
+const age = prompt("Введите свой возраст");
+console.log(age); // 18
+console.log(typeof age); // string - всегда возвращает строку
+ 
+чтоб получить число нужно привести строку к числу
 
-// Решение 1
+const age = Number(prompt("Введите свой возраст"));
+console.log(age); // 18
+console.log(typeof age); // number */
 
-// const unique = [];
+/* Задача 3 
+Методы Number.parseInt() проходится с первой позиции и запинается 
+на первом не числовом символе, если в начале строки нет числа то вернется NaN
+Возвращает целое число
 
-// for (let i = 0; i < first.length; i += 1) {
-//   if (!second.includes(first[i])) {
-//     unique.push(first[i]);
-//   }
-// }
-// console.log(unique); // [1, 2, 4]
+let elementsWidth = "100px";
+console.log(Number.parseInt(elementsWidth)); // 100
 
-// // 2. Перебираем второй массив и проверяем есть ли элемент в первом массиве
-// // Если нет, то добавляем в новый массив
-// // Если есть, то пропускаем
+Метод Number.parseFloat проходится с первой позиции
+Возвращает дробное число, включает в себя дробную часть
+Если в начале строки нет числа то вернется NaN
 
-// for (let i = 0; i < second.length; i += 1) {
-//   if (!first.includes(second[i])) {
-//     unique.push(second[i]);
-//   }
-// }
-// console.log(unique); // [1, 2, 4, 2]
+let elementsWidth = "100.5px";
+console.log(Number.parseFloat(elementsWidth)); // 100.5
 
-// // Удаляем дубликати с массива unique и сортируем его по возрастанию
+Метод Number.toFixed()- метод работы с деньгами,
+отсекает число до указанного количества знаков после запятой
+Вызывается на самом числе. Возвращает строку
 
-// const uniqueSorted = unique
-//   .filter((item, index) => unique.indexOf(item) === index)
-//   .sort((a, b) => a - b);
-// console.log(uniqueSorted); // [1, 2, 4]
+const salary = 1000.5001;
+console.log(salary.toFixed(2)); // 1000.50 - строка
+ 
+let salary = 1000.5001;
+salary = salary.toFixed(2);
+salary = Number(salary);
+console.log(salary); // 1000.5 - число 
 
-// Решение 2
+можно записать также
 
-// const unique1 = first.filter((item) => !second.includes(item));
+let salary = 1000.5001;
+salary = Number(salary.toFixed(2));
+console.log(salary); // 1000.5 - число 
 
-// const unique2 = second.filter((item) => !first.includes(item));
+let salary = 1000.5001;
+console.log(Number(salary.toFixed(2))); // 1000.5 - число */
 
-// const unique = [...unique1, ...unique2].sort((a, b) => a - b);
-// // удалить дубликаты
-// const uniqueSorted = unique.filter(
-//   (item, index) => unique.indexOf(item) === index
-// );
-// console.log(uniqueSorted); // [1, 2, 4]
+/* Задача 4
+Приведение к числу с Number(value) 
+Значение Nan - не число, не равно ничему даже самому себе
 
-// Решение 3 через функцію
+let guantity = "5";
+let value = "Эту строку нельзя привести к числу";
+console.log(Number(guantity)); // 5
+console.log(Number(value)); // NaN
 
-// function getUnique(arr1, arr2) {
-//   const unique = arr1.filter((item) => !arr2.includes(item));
-//   const unique2 = arr2.filter((item) => !arr1.includes(item));
-//   const uniqueSorted = [...unique, ...unique2].sort((a, b) => a - b);
-//   return uniqueSorted.filter(
-//     (item, index) => uniqueSorted.indexOf(item) === index
-//   );
-// }
 
-// console.log(getUnique(first, second)); // [1, 2, 4]
+Проверка на Nan - Number.isNaN(value) - возвращает true или false
+
+let guantity = "5";
+let value = "Эту строку нельзя привести к числу";
+console.log(Number.isNaN(guantity)); // false
+console.log(Number.isNaN(value)); // true
+*/
+
+/* Задача 5
+Обьект Math - встроенный обьект в JS, который содержит в себе математические методы
+Возведение в степень - Math.pow(base, exponent) - возвращает число
+
+const base = 2; // основание
+const power = 5; // степень
+console.log(Math.pow(base, power)); // 32 - число
+
+можно записать также
+
+const base = 2; // основание
+const power = 5; // степень
+const result = Math.pow(base, power);
+console.log(result); // 32 - число
+
+Квадратный корень - Math.sqrt(number) - возвращает число 
+
+const number = 25;
+console.log(Math.sqrt(number)); // 5 - число
+
+Модуль числа - Math.abs(number) - возвращает число
+
+const number = -25;
+console.log(Math.abs(number)); // 25 - число
+
+Округление числа - Math.round(number) - возвращает число
+
+const number = 25.5;
+console.log(Math.round(number)); // 26 - число
+
+Округление в меньшую сторону - Math.floor(number) - возвращает число
+
+const number = 25.5;
+console.log(Math.floor(number)); // 25 - число
+
+Округление в большую сторону - Math.ceil(number) - возвращает число
+
+const number = 25.5;
+console.log(Math.ceil(number)); // 26 - число
+
+Максимальное число - Math.max(number1, number2, number3, ...) - возвращает число
+
+const number1 = 25;
+const number2 = 50;
+const number3 = 75;
+console.log(Math.max(number1, number2, number3)); // 75 - число
+
+Минимальное число - Math.min(number1, number2, number3, ...) - возвращает число
+
+const number1 = 25;
+const number2 = 50;
+const number3 = 75;
+console.log(Math.min(number1, number2, number3)); // 25 - число
+
+Случайное число - Math.random() - возвращает число
+
+console.log(Math.random()); // 0.123456789 - число
+
+Случайное целое число - Math.floor(Math.random() * (max - min + 1)) + min - возвращает число
+
+const min = 1;
+const max = 10;
+console.log(Math.floor(Math.random() * (max - min + 1)) + min); // 5 - число
+
+Случайное целое число в диапазоне от 0 до 100 - Math.floor(Math.random() * 101) - возвращает число
+
+console.log(Math.floor(Math.random() * 101)); // 50 - число
+
+Случайное целое число в диапазоне от 0 до 100 - Math.floor(Math.random() * (max - min + 1)) + min - возвращает число
+
+const min = 0;
+const max = 100;
+console.log(Math.floor(Math.random() * (max - min + 1)) + min); // 50 - число
+*/
+
+/* Задача 6
+Напиши скрипт , который просит пользователя ввести число и степень
+возводит число в указанную степень и выводит результат в консоль
+*/
