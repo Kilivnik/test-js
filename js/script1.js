@@ -250,3 +250,88 @@ console.log(Math.floor(Math.random() * (max - min + 1)) + min); // 50 - числ
 // } else {
 //   console.log("Я вас не знаю!");
 // }
+const user = { name: "Petro" };
+user.name = "Dmytro";
+
+console.log(user.name);
+
+const str = "Banzay!";
+const message =
+  str.split("").reverse().join("").indexOf("!") === 0 ? "Hooray" : "Bingo";
+
+console.log(message);
+
+class Astronaut {
+  constructor(weight = "90kg", age) {
+    this.weight = weight;
+    this.age = age;
+  }
+}
+
+const person = new Astronaut("100kg", 30);
+console.log(person.age, person.weight);
+
+function whatIsReturned() {
+  var total = "one";
+  var TOTAL = "two";
+
+  return total;
+}
+
+console.log(whatIsReturned());
+
+window.size = "50x20";
+const photo = {
+  size: "25x30",
+};
+function getPhotoSize(photo = { size: "90x30" }) {
+  return this.size;
+}
+getPhotoSize.call(photo);
+
+function calculate(a) {
+  const power = 3;
+  a * power + 10;
+}
+
+console.log(calculate(10));
+
+let audi = { wheels: 4 };
+let tesla = audi;
+
+delete audi.wheels;
+
+console.log(audi.wheels, tesla.wheels);
+
+// Когда книга была издана, для нумерации ее страниц потребовалось 2775 цифр.
+// Сколько страниц в книге?
+// первые 9 страниц - это 9 цифр ( так как 9 однозначных )
+
+// 2775 - 9 = 2766 цифры остается
+
+// двузначные с 10 по 99 - это 90 страниц, по 2 цифры:
+// 90 * 2 = 180 цифр
+
+// 2766 - 180 = 2586 остается
+
+// далее идут трехзначные числа:
+// 2586 : 3 = 862 страницы с трехзначными числами
+
+// 862 + 9 + 90 = 961 страница в книге.
+
+// Ответ: 961 страница.
+
+const pages = 2775;
+const pagesString = String(pages);
+const pagesLength = pagesString.length;
+
+console.log(pagesLength);
+
+// const b = null,
+//   c = {};
+// console.log(b || "+", c || "+");
+
+// const names = ["Volodya", "Viktor", "Vasyl"];
+// const extendedNames = names.join("-Viktor-").split("-");
+
+// console.log(extendnedNames.lastIndexOf("Viktor"));
