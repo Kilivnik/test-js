@@ -1,3 +1,163 @@
+// Массивы, объекты, функции
+// Обычная ф - ция имеет доступ к arguments,  стрелочная нет
+
+// Задача 1
+// В ф-цию передаються и строки и числа. Как их отличить и вывести в консоль?
+
+// function add() {
+//   console.log(arguments); // получаем псевдомассив аргументов ф-ции
+//   const args = Array.from(arguments); // преобразуем псевдомассив в массив
+//   console.log(args);
+//   const numbers = [];
+//   const strings = [];
+
+//   for (let arg of args) {
+//     if (typeof arg === "number") {
+//       numbers.push(arg);
+//     } else {
+//       strings.push(arg);
+//     }
+//   }
+//   console.log(numbers);
+//   console.log(strings);
+// }
+
+// add("2", "3", "4", 4, 5);
+// add("2", "3", 4, 4, 5);
+// add("2", 5);
+
+// Задача 2
+// Вернуть сумму чисел, которые передаются в ф - цию
+
+// const number1 = prompt("Введите первое число");
+// const number2 = prompt("Введите второе число");
+
+// function add(a, b) {
+//   // a, b - параметры ф-ции
+//   return a * b; // возвращаем результат работы ф-ции
+// }
+
+// console.log(add(number1, number2)); // number1, number2 - аргументы ф-ции
+
+// Если нам нужно сложить  number1, number2 и вывести в кконсоль результат, то мы должны преобразовать их в числа
+// console.log(add(Number(number1), Number(number2)));
+
+// Если нам нужно проверить вводимые данные, то мы должны проверить их на число
+
+// function add(a, b) {
+//   if (isNaN(a) || isNaN(b)) {
+//     return "Введите число";
+//   }
+//   return a * b;
+// }
+// console.log(add(number1, number2));
+
+// Задача 3
+
+// Array.from() - преобразует псевдомассив в массив.
+// Можно передать вторым аргументом функцию, которая будет применяться к каждому элементу массива
+
+// function add() {
+//   const args = Array.from(arguments, (item) => Number(item)); // преобразуем псевдомассив в массив
+//   console.log(args); // [1, 2, 3, 4, 5]
+//   let total = 0; // сумма чисел
+//   for (let arg of args) {
+//     // перебираем массив
+//     total += arg; // суммируем числа
+//   }
+//   return total; // возвращаем результат
+// }
+
+// console.log(add("2", "3", "4", 4, 5)); // 18
+
+// Задача 4
+// Найти меньшее с чисел, которые передаются в ф - цию
+
+// function min(a, b) {
+//   if (a < b) {
+//     return a;
+//   }
+//   return b;
+// }
+
+// console.log(min(2, 5)); // 2
+// console.log(min(3, -1)); // -1
+// console.log(min(1, 1)); // 1
+
+// Если чисел больше 2, то мы должны сравнить их между собой
+
+// function min() {
+//   const args = Array.from(arguments); // преобразуем псевдомассив в массив
+//   let min = args[0]; // минимальное число
+//   for (let arg of args) {
+//     // перебираем массив
+//     if (arg < min) {
+//       // если текущее число меньше минимального
+//       min = arg; // присваиваем минимальному текущее число
+//     }
+//   }
+//   return min;
+// }
+
+// console.log(min(2, 5)); // 2
+// console.log(min(3, -1, 0)); // -1
+// console.log(min(1, 1, 3, 7, 15, -2)); // -2
+
+// Задача 5
+// Найти максимальное число, которое передаются в ф - цию
+
+// function max() {
+//   const args = Array.from(arguments); // преобразуем псевдомассив в массив
+//   let max = args[0]; // максимальное число
+//   for (let arg of args) {
+//     // перебираем массив
+//     if (arg > max) {
+//       // если текущее число больше максимального
+//       max = arg; // присваиваем максимальному текущее число
+//     }
+//   }
+//   return max;
+// }
+
+// console.log(max(2, 5)); // 5
+// console.log(max(3, -1, 0)); // 3
+// console.log(max(1, 1, 3, 7, 15, -2)); // 15
+
+// Задача 6
+// Найти площадь для вычисления прямоугольника со сторонами, которые будут переданы в виде строки.
+// Значения гарантированно будут разделены пробелом.
+
+// function getReactArea(dimensions) {
+//   const numbers = dimensions.split(" "); // разбиваем строку на массив
+//   //   const a = Number(numbers[0]); // первое число
+//   //   const b = Number(numbers[1]); // второе число
+//   //     return a * b; // возвращаем площадь
+
+//   return numbers[0] * numbers[1]; // возвращаем площадь
+// }
+// console.log(getReactArea("8 11")); // 88
+
+// Когда мы спрашиваэм высоту и ширину у пользователя через prompt, то он вводит строку, а не число.
+// Поэтому мы должны преобразовать строку в число.
+
+// const width = prompt("Введите ширину"); // вводим ширину
+// const height = prompt("Введите высоту"); // вводим высоту
+
+// function getReactArea(width, height) { // принимаем ширину и высоту
+//   if (isNaN(width) || isNaN(height)) { // если ширина или высота не число
+//     alert("Вы ввели не число");
+//     return; // прекращаем выполнение функции
+//   }
+
+//   if (width === null || height === null) { // если пользователь нажал отмена
+//     alert("Вы отменили ввод");
+//     return; // прекращаем выполнение функции
+//   }
+
+//   return width * height; // возвращаем площадь
+// }
+// console.log(getReactArea(width, height)); // 88
+
 // Задача 7
 // Функция должна проверять, name является ли контакт реальным firstName и данное свойство ( prop)
 // является свойством этого контакта.
@@ -42,6 +202,7 @@
 //   // Only change code above this line
 // }
 // console.log(lookUpProfile("Sherlock", "likes"));
+
 // Задача 8
 // Используйте функцию parseInt с основанием
 // Функция parseInt()анализирует строку и возвращает целое число.
@@ -55,20 +216,27 @@
 // В этом примере строка преобразуется 11в целое число 3.
 // Используйте parseInt()в convertToIntegerфункции,
 // чтобы она преобразовывала двоичное число в целое и возвращала его.
+
 // function convertToInteger(str) {
 //   return parseInt(str, 2);
 // }
-// convertToInteger("10011");
+// console.log(convertToInteger("10011")); // 19
+// console.log(convertToInteger("11")); // 3
+
 // Задача 9
 // несколько тернарных операторов
 // В checkSignфункции используйте несколько условных операторов —
 // в соответствии с рекомендуемым форматом, используемым в findGreaterOrEqual— чтобы проверить,
 // является ли число положительным, отрицательным или нулем.
 // Функция должна вернуть positive, negativeили zero.
+
 // function checkSign(num) {
 //   return num > 0 ? "positive" : num < 0 ? "negative" : "zero";
 // }
-// checkSign(10);
+// console.log(checkSign(10)); // positive
+// console.log(checkSign(-12)); // negative
+// console.log(checkSign(0)); // zero
+
 // Задача 10
 // Замена циклов с помощью рекурсии
 // Рекурсия — это концепция, согласно которой функция может быть выражена через саму себя.
@@ -82,6 +250,7 @@
 //   }
 //   // Only change code above this line
 // }
+
 // Задача 11
 // Используйте рекурсию для создания обратного отсчета
 // Базовый вариант .
@@ -95,6 +264,7 @@
 // функция должна вернуть пустой массив. Например, вызов этой функции n = 5 должен вернуть
 // массив [5, 4, 3, 2, 1]. Ваша функция должна использовать рекурсию, вызывая саму себя,
 // и не должна использовать циклы любого вида.
+
 // function countdown(n) {
 //   if (n < 1) {
 //     return [];
@@ -105,6 +275,7 @@
 //   }
 // }
 // console.log(countdown(10)); // [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+
 // Задача 12
 // Используйте рекурсию для создания диапазона чисел
 // Продолжая предыдущую задачу, мы предоставляем вам еще одну возможность создать рекурсивную функцию для решения проблемы.
@@ -115,6 +286,7 @@
 // Ваша функция должна использовать рекурсию, вызывая саму себя,
 // и не использовать циклы любого вида.
 // Это также должно работать для случаев, когда оба startNumи endNumодинаковы.
+
 // function rangeOfNumbers(startNum, endNum) {
 //   if (startNum === endNum) {
 //     return [startNum];
@@ -125,6 +297,7 @@
 //   }
 // }
 // console.log(rangeOfNumbers(1, 5)); // [1, 2, 3, 4, 5]
+
 // Задача 13
 // Сравните области действия переменной и пусть ключевые слова
 // Напишите код так, чтобы i объявленная в if операторе переменная была отдельной от
@@ -135,6 +308,7 @@
 // часто лучше использовать разные имена переменных, чтобы избежать путаницы.
 // Переменная i, объявленная в ifоператоре, должна равняться строке block scope.
 // checkScope()должен вернуть строкуfunction scope
+
 // function checkScope() {
 //   let i = "function scope"; // i глоабльная переменная
 //   if (true) {
@@ -143,13 +317,16 @@
 //   }
 //   return i; // function scope
 // }
+
 // задача 14
 // Используйте параметр Rest с параметрами функции
 // функция sumмогла принимать любое количество аргументов и возвращать их сумму.
+
 // const sum = (...args) => {
 //   return args.reduce((a, b) => a + b, 0);
 // };
 // console.log(sum(1, 2, 3)); // 6
+
 // Задача 15
 // деструктурирования с параметром Rest для переназначения элементов массива
 // Результат аналогичен Array.prototype.slice(), как показано ниже:
@@ -165,12 +342,14 @@
 // Используйте присваивание деструктурирования с параметром rest,
 // чтобы выполнить эффективный Array.prototype.slice()так, чтобы arr
 // это был подмассив исходного массива sourceс опущенными первыми двумя элементами.
+
 // const source = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 // function removeFirstTwo(list) {
 //   const [, , ...arr] = list; // Change this line
 //   return arr;
 // }
 // const arr = removeFirstTwo(source);
+
 // Задача 16
 // Создание строк с использованием шаблонных литералов
 // li Используйте литеральный синтаксис шаблона с обратными кавычками
@@ -189,6 +368,7 @@
 //   failure: ["no-var", "var-on-top", "linebreak"],
 //   skipped: ["no-extra-semi", "no-dup-keys"],
 // };
+
 // function makeList(arr) {
 //   const failureItems = [];
 //   // перебираем массив
@@ -200,3 +380,100 @@
 // }
 // const failuresList = makeList(result.failure);
 // console.log(failuresList);
+
+// Задача 17
+// Найти среднее значение.Ф - ция принимаэт произвольное кол - во аргументов
+// и возвращает их среднее арифметическое. Все аргументы - числа.
+
+// function calAverage() {
+//   const args = Array.from(arguments); // преобразуем в массив
+//   const numbersCount = args.length; // получаем длину массива
+//   let sum = 0;
+
+//   for (let number of args) {
+//     sum += number;
+//   }
+//   return sum / numbersCount;
+// }
+
+// console.log(calAverage(1, 2, 3, 4)); // 2.5
+// console.log(calAverage(14, 8, 2)); // 8
+// console.log(calAverage(27, 43, 2, 8, 36)); // 23.2
+
+// Задача 18
+// Отсортировать массив по алфавиту
+
+// const words = ["Hello", "World", "Apple", "Orange", "Banana"]; // массив слов
+
+// charCodeAt() - возвращает целое число, представляющее UTF-16 код единицы кода в указанной позиции.
+// Возвращает NaN, если индекс больше или равен длине строки.
+// chartAt() - возвращает новую строку, содержащую один указанный символ из объекта String.
+// Вернет символ из строки по индексу
+
+// Сравниваем 1 слово с 2,3,4,5. Потом 2 слово с 3,4,5. Потом 3 слово с 4,5. Потом 4 слово с 5.
+
+// const sortedWords = words.sort((a, b) => {
+//   if (a.toLowerCase() > b.toLowerCase()) {
+//     return 1;
+//   }
+//   if (a.toLowerCase() < b.toLowerCase()) {
+//     return -1;
+//   }
+//   return 0;
+// });
+
+// console.log(sortedWords);
+
+// Задача 19
+// Форматирование времени
+// Напишите ф-цию, которая переведет значение минут в часы и минуты в формате HH:MM
+
+// function formatTime(minuts) {
+//   const hours = Math.floor(minuts / 60);
+//   const mins = minuts % 60;
+//   //   решение с тернарным оператором
+//   //   const hours = Math.floor(minuts / 60);
+//   //   const mins = minuts % 60;
+//   //   const convertedHours = hours < 10 ? `0${hours}` : hours;
+//   //   const convertedMins = mins < 10 ? `0${mins}` : mins;
+//   //   return `${convertedHours}:${convertedMins}`;
+
+//   const doubleDigitHours = String(hours).padStart(2, "0");
+//   const doubleDigitMins = String(mins).padStart(2, "0");
+//   return `${doubleDigitHours}:${doubleDigitMins}`;
+// }
+
+// console.log(formatTime(90)); // 01:30
+// console.log(formatTime(450)); // 07:30
+// console.log(formatTime(1441)); // 24:01
+
+// Задача 20
+// Коллекция курсов(includes, indexOf, push)
+// Напишите ф - цию для работі с коллекцией обучающих курсов courses.
+//     - addCourse(name) - добавляет курс в конец коллекции
+//     - removeCourse(name) - удаляет курс из коллекции
+//     - updateCourse(oldName, newName) - обновляет название курса
+//     - reset() - очищает коллекцию
+//     - getAll() - возвращает массив всех курсов
+//     - getCourseCount() - возвращает количество курсов в коллекции
+
+const courses = ["HTML", "CSS", "JavaScript", "React", "PostgreSQL"];
+
+// addCourse("Expres")
+
+// function addCourses(name) {
+//   // добавляет курс в конец коллекции
+//   courses.push("Expres");
+//   return courses;
+// }
+// addCourses("Expres");
+// console.log(courses); // ["HTML", "CSS", "JavaScript", "React", "PostgreSQL", "Expres"]
+
+// addCourse("CSS")
+
+// function addCourses(name) { // добавляет курс в конец коллекции
+//   if (courses.includes(name)) { // если в массиве есть такой курс, то ничего не делаем
+//     return "Такой курс уже есть";
+//   }
+// }
+// console.log(addCourses("CSS")); // Такой курс уже есть
