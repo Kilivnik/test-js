@@ -250,88 +250,133 @@ console.log(Math.floor(Math.random() * (max - min + 1)) + min); // 50 - числ
 // } else {
 //   console.log("Я вас не знаю!");
 // }
-const user = { name: "Petro" };
-user.name = "Dmytro";
 
-console.log(user.name);
+// Задача 9
 
-const str = "Banzay!";
-const message =
-  str.split("").reverse().join("").indexOf("!") === 0 ? "Hooray" : "Bingo";
+// const user = { name: "Petro" };
+// user.name = "Dmytro";
 
-console.log(message);
+// console.log(user.name); // Dmytro
 
-class Astronaut {
-  constructor(weight = "90kg", age) {
-    this.weight = weight;
-    this.age = age;
-  }
-}
+// Задача 10
 
-const person = new Astronaut("100kg", 30);
-console.log(person.age, person.weight);
+// const str = "Banzay!";
+// const message =
+//   str.split("").reverse().join("").indexOf("!") === 0 ? "Hooray" : "Bingo"; // если в строке есть ! то Hooray, иначе Bingo
 
-function whatIsReturned() {
-  var total = "one";
-  var TOTAL = "two";
+// console.log(message); // Hooray
 
-  return total;
-}
+// Задача 11
 
-console.log(whatIsReturned());
+// class Astronaut {
+//   constructor(weight = "90kg", age) { // задаем значения по умолчанию
+//     this.weight = weight;
+//     this.age = age;
+//   }
+// }
 
-window.size = "50x20";
-const photo = {
-  size: "25x30",
-};
-function getPhotoSize(photo = { size: "90x30" }) {
-  return this.size;
-}
-getPhotoSize.call(photo);
+// const person = new Astronaut("100kg", 30); // создаем объект
+// console.log(person.age, person.weight); // 30 100kg
 
-function calculate(a) {
-  const power = 3;
-  a * power + 10;
-}
+// Задача 12
 
-console.log(calculate(10));
+// function whatIsReturned() { // функция возвращает undefined
+//   var total = "one"; // переменная total объявлена внутри функции
+//   var TOTAL = "two"; // переменная TOTAL объявлена внутри функции
 
-let audi = { wheels: 4 };
-let tesla = audi;
+//   return total; // возвращаем значение переменной total
+// }
 
-delete audi.wheels;
+// console.log(whatIsReturned()); // one
 
-console.log(audi.wheels, tesla.wheels);
+// Задача 13
 
-// Когда книга была издана, для нумерации ее страниц потребовалось 2775 цифр.
-// Сколько страниц в книге?
-// первые 9 страниц - это 9 цифр ( так как 9 однозначных )
+// window.size = "50x20"; // глобальная переменная
+// const photo = { // объект
+//   size: "25x30", // свойство объекта
+// };
+// function getPhotoSize(photo = { size: "90x30" }) { // функция с параметром по умолчанию
+//   return this.size; // возвращаем значение глобальной переменной
+// }
+// getPhotoSize.call(photo); // вызываем функцию с контекстом photo
 
-// 2775 - 9 = 2766 цифры остается
+// Задача 14
 
-// двузначные с 10 по 99 - это 90 страниц, по 2 цифры:
-// 90 * 2 = 180 цифр
+// function calculate(a) { // функция с параметром a
+//   const power = 3; // переменная power объявлена внутри функции
+//   a * power + 10; // возвращаем значение выражения
+// }
 
-// 2766 - 180 = 2586 остается
+// console.log(calculate(10)); // undefined
 
-// далее идут трехзначные числа:
-// 2586 : 3 = 862 страницы с трехзначными числами
+// Задача 15
 
-// 862 + 9 + 90 = 961 страница в книге.
+// let audi = { wheels: 4 }; // объект
+// let tesla = audi; // переменная tesla ссылается на объект audi
 
-// Ответ: 961 страница.
+// delete audi.wheels; // удаляем свойство wheels из объекта audi
 
-const pages = 2775;
-const pagesString = String(pages);
-const pagesLength = pagesString.length;
+// console.log(audi.wheels, tesla.wheels); // undefined undefined
 
-console.log(pagesLength);
+// Задача 16
 
-// const b = null,
-//   c = {};
-// console.log(b || "+", c || "+");
+// const b = null, // переменная b равна null
+//   c = {}; // переменная c равна пустому объекту
+// console.log(b || "+", c || "+"); // + {} - если переменная равна null или undefined, то возвращается второй операнд
 
-// const names = ["Volodya", "Viktor", "Vasyl"];
-// const extendedNames = names.join("-Viktor-").split("-");
+// Задача 17
 
-// console.log(extendnedNames.lastIndexOf("Viktor"));
+// const names = ["Volodya", "Viktor", "Vasyl"]; // массив
+// const extendedNames = names.join("-Viktor-").split("-"); // создаем новый массив, в котором каждый элемент разделен строкой "-Viktor-"
+
+// console.log(extendnedNames.lastIndexOf("Viktor")); // Uncaught ReferenceError: extendnedNames is not defined -
+// // переменная extendnedNames не определена
+
+// Задача 18
+
+// const x = 7; // глобальная переменная
+
+// console.log(x >= 7); // true - если переменная x больше или равна 7, то возвращается true
+// console.log(x == 8); // false - если переменная x равна 8, то возвращается true
+// console.log(x <= 8); // true - если переменная x меньше или равна 8, то возвращается true
+// console.log(x != 8); // true - если переменная x не равна 8, то возвращается true
+// console.log(x > 7); // false - если переменная x больше 7, то возвращается true
+// console.log(x === "7"); // false - если переменная x строго равна "7", то возвращается true
+// console.log(x > 8); // false - если переменная x больше 8, то возвращается true
+
+// Задача 19
+//Логические операторы
+
+// && - логическое И - возвращает true, если оба операнда равны true, иначе возвращает false
+// || - логическое ИЛИ - возвращает true, если хотя бы один операнд равен true, иначе возвращает false
+// (!) - логическое НЕ - возвращает true, если операнд равен false, иначе возвращает false
+
+const x = 3; // глобальная переменная
+const y = 6; // глобальная переменная
+
+console.log(x > y && y < 6); // false - если оба операнда равны true, то возвращается true, иначе возвращается false
+console.log(x == 3 || y > 6); // true - если хотя бы один операнд равен true, то возвращается true, иначе возвращается false
+console.log(x < 3 && y == 6); // false - если оба операнда равны true, то возвращается true, иначе возвращается false
+console.log(!(x > y)); // true - если операнд равен false, то возвращается true, иначе возвращается false
+
+// Задача 20
+
+// Приоритет операторов
+
+// 1. () - скобки
+// 2. ! - логическое НЕ
+// 3. * / % - умножение, деление, остаток от деления
+// 4. + - сложение, - - вычитание
+// 5. < > <= >= - сравнение
+// 6. == != === !== - сравнение
+// 7. && - логическое И
+// 8. || - логическое ИЛИ
+// 9. = - присваивание
+
+// Задача 21
+// Присвоить переменной х удвоеное значение остатка от деления произведения переменных a, b на их сумму
+
+// function testOperation (a, b) {
+//     let x = (a * b) % (a + b) * 2;
+//     return x;
+// }
