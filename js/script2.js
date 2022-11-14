@@ -477,3 +477,39 @@ const courses = ["HTML", "CSS", "JavaScript", "React", "PostgreSQL"];
 //   }
 // }
 // console.log(addCourses("CSS")); // Такой курс уже есть
+
+// Задача 21
+// Кодирование в функции colorOf.функция принимает 3 параметра: r g b.
+// Это означает значение цвета красного, зеленого и синего.диапазон значений 0 - 255.
+// Используйте toString(16)Преобразование чисел rgb в шестнадцатеричную форму строки.
+// наконец, объедините их в цветовой веб - код и верните его.
+// код цвета должен начинаться с «#». а затем используйте 2 символа на цвет.
+
+// Например:
+// colorOf(255,0,0) should return "#ff0000"
+// colorOf(0,111,0) should return "#006f00"
+// colorOf(1, 2 ,3) should return "#010203"
+
+// function colorOf(r, g, b) {
+//   //coding here
+//   const red = r.toString(16).padStart(2, "0");
+//   const green = g.toString(16).padStart(2, "0");
+//   const blue = b.toString(16).padStart(2, "0");
+//   return `#${red}${green}${blue}`;
+// }
+// console.log(colorOf(255, 0, 0)); // "#ff0000"
+
+// решение 2
+// function colorOf(r, g, b) {
+//   //coding here
+//   return (
+//     "#" +
+//     r.toString(16).padStart(2, 0) +
+//     g.toString(16).padStart(2, 0) +
+//     b.toString(16).padStart(2, 0)
+//   );
+// }
+
+//решение 3
+// const colorOf = (...rgb) =>
+//   "#" + rgb.map((x) => `0${x.toString(16)}`.slice(-2)).join("");
