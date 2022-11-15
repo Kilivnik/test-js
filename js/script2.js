@@ -457,7 +457,7 @@
 //     - getAll() - возвращает массив всех курсов
 //     - getCourseCount() - возвращает количество курсов в коллекции
 
-const courses = ["HTML", "CSS", "JavaScript", "React", "PostgreSQL"];
+// const courses = ["HTML", "CSS", "JavaScript", "React", "PostgreSQL"];
 
 // addCourse("Expres")
 
@@ -513,3 +513,55 @@ const courses = ["HTML", "CSS", "JavaScript", "React", "PostgreSQL"];
 //решение 3
 // const colorOf = (...rgb) =>
 //   "#" + rgb.map((x) => `0${x.toString(16)}`.slice(-2)).join("");
+
+// Задача 22
+
+// Кодирование в функции firstToLast, функция принимает 2 параметра:
+// str и c.strявляется строкой.c является символом.
+// Пожалуйста, верните пробел между первой cи последней позицией c.
+// Если c в str, должно возвращаться положительное целое число;
+// Если есть только один c в str, должен вернуть 0; Если нет c в str, должен вернуть - 1.
+// Поиск не должен игнорировать случай.
+// Используем indexOf () и lastIndexOf () search ()
+
+// Например:
+
+// firstToLast("ababc","a") should return 2(2-0)
+// firstToLast("ababc","c") should return 0(4-4)
+// firstToLast("ababc","d") should return -1
+
+// Перебираем строку
+// Проверяем есть ли символ в строке
+// Если есть, то находим индекс первого и последнего вхождения символа
+// Возвращаем разницу между индексами
+
+// function firstToLast(str, c) {
+//   let firstIndex = str.indexOf(c);
+//   let lastIndex = str.lastIndexOf(c);
+//   if (firstIndex === -1) {
+//     return -1;
+//   } // если символа в строке 1 то возвращаем 0
+//   if (firstIndex === lastIndex) {
+//     return 0;
+//   } else {
+//     return lastIndex - firstIndex;
+//   }
+// }
+
+// решение с помощью switch
+// function firstToLast(str, c) {
+//   first = str.indexOf(c);
+//   last = str.lastIndexOf(c);
+//   switch (str.split(c).length - 1) {
+//     case 0:
+//       return -1;
+//     case 1:
+//       return 0;
+//     default:
+//       return last - first;
+//   }
+// }
+
+// console.log(firstToLast("ababc", "a")); // 2 (2-0)
+// console.log(firstToLast("ababc", "c")); // 0 (4-4)
+// console.log(firstToLast("ababc", "d")); // -1
