@@ -380,3 +380,79 @@ console.log(Math.floor(Math.random() * (max - min + 1)) + min); // 50 - числ
 //     let x = (a * b) % (a + b) * 2;
 //     return x;
 // }
+
+// NumberObject.toFixed(n) - возвращает строку, содержащую число, отформатированное с заданным количеством знаков после запятой.
+
+// NumberObject.toPrecision(n) - возвращает строку, содержащую число,
+// отформатированное с заданным количеством знаков в общем виде.
+
+// NumberObject.toString([radix]) - возвращает строку, представляющую объект Number.
+
+// NumberObject.toExponential(n) - возвращает строку, содержащую число,
+// отформатированное с заданным количеством знаков в экспоненциальном виде.
+
+// NumberObject.valueOf() - возвращает примитивное значение объекта Number.
+
+// Задача 22
+
+// Кодирование в функции howManySmaller, функция принимает 2 параметра: arr и n.
+// arr представляет собой десятичный массив.n является десятичной дробью.
+// Первая миссия: пусть все элементы в массиве сохраняют два десятичных знака (не нужно преобразовывать число n).
+// Вторая миссия: Обход обр, подсчитай номер элемента меньше n и верни его.
+
+// Например:
+// howManySmaller([1.234,1.235,1.228],1.24) should return 2
+// howManySmaller([1.1888,1.1868,1.1838],1.19) should return 1
+// howManySmaller([3.1288,3.1212,3.1205],3.1212) should return
+
+// создаем функцию
+// function howManySmaller(arr, n) {
+//   // все элементы в массиве сохраняют два десятичных знака
+//   let newArr = arr.map((item) => {
+//     return item.toFixed(2);
+//   });
+//   console.log(newArr);
+//   // подсчитываем количество элементов меньше n
+//   let count = 0;
+//   for (let i = 0; i < newArr.length; i++) {
+//     if (newArr[i] < n) {
+//       count++;
+//     }
+//   }
+//   return count;
+// }
+
+// решение 2
+// howManySmaller = (arr, n) =>
+//   arr.map((x) => x.toFixed(2)).filter((x) => x < n).length;
+
+// console.log(howManySmaller([1.234, 1.235, 1.228], 1.24)); // 2
+// console.log(howManySmaller([1.1888, 1.1868, 1.1838], 1.19)); // 1
+// console.log(howManySmaller([3.1288, 3.1212, 3.1205], 3.1212)); // 2
+
+// slice() - возвращает новый массив, содержащий копию части исходного массива.
+// substring() - возвращает подстроку строки между двумя индексами или начальным и конечным индексами.
+// substr() - возвращает подстроку строки между двумя индексами или начальным индексом и длиной.
+
+// StringObject.slice(startindex,endindex)
+// StringObject.substring(startindex,endindex)
+// StringObject.substr(startindex, length)
+
+// Задача 23
+
+// Кодирование в функции cutIt, функция принимает 1 параметр: arr. arr представляет собой массив строк.
+// Первая миссия: Обходя arr, найдите кратчайшую длину строки.
+// Вторая миссия: arr снова пройтись, перехватить все строки до кратчайшей длины
+// строки(начать с index0).вы можете использовать один из slice() substring() или substr() сделать это
+// вернуть результат после завершения работы.
+
+// Например:
+// cutIt(["ab","cde","fgh"]) should return ["ab","cd","fg"]
+// cutIt(["abc","defgh","ijklmn"]) should return ["abc","def","ijk"]
+// cutIt(["codewars","javascript","java"]) should return ["code","java","java"]
+
+// function cutIt(arr) {}
+
+// console.log(cutIt(["ab", "cde", "fgh"])); // ["ab","cd","fg"]
+// console.log(cutIt(["abc", "defgh", "ijklmn"])); // ["abc","def","ijk"]
+// console.log(cutIt(["codewars", "javascript", "java"])); // ["code","java","java"]
