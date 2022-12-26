@@ -62,3 +62,95 @@
 // console.log(isPolindromNumber(input1));
 // console.log(isPolindromNumber(input2));
 // console.log(isPolindromNumber(input3));
+
+// Задача 3
+
+// Вам дана m x nцелочисленная сетка, accountsгде accounts[i][j]сумма денег у клиента в банке.
+// Верните богатство, которое есть у самого богатого покупателя.
+
+// Богатство клиента — это сумма денег, которую он имеет на всех своих банковских счетах.
+// Самый богатый клиент — это клиент, который имеет максимальное богатство.
+
+// Пример 1:
+
+// Ввод: account = [[1,2,3],[3,2,1]]
+//  Вывод: 6
+//  Объяснение :
+// 1st customer has wealth = 1 + 2 + 3 = 6
+// 2nd customer has wealth = 3 + 2 + 1 = 6
+//  Оба клиента считаются самыми богатыми с состоянием 6 каждый, поэтому верните 6.
+
+/**
+ * @param {number[][]} accounts
+ * @return {number}
+ */
+// var maximumWealth = function (accounts) {
+//   let maxWealth = 0;
+
+//   for (const account of accounts) {
+//     let wealth = 0;
+//     for (const money of account) {
+//       wealth += money;
+//     }
+//     if (wealth > maxWealth) {
+//       maxWealth = wealth;
+//     }
+//   }
+//   return maxWealth;
+// };
+// console.log(
+//   maximumWealth([
+//     [1, 2, 3],
+//     [3, 2, 1],
+//   ])
+// );
+
+// решение 2
+
+// const maximumWealth = (accounts) => {
+//   let res = 0;
+//   for (const a of accounts) {
+//     let sum = a.reduce((x, y) => x + y);
+//     res = Math.max(res, sum);
+//   }
+//   return res;
+// };
+
+// console.log(
+//   maximumWealth([
+//     [1, 2, 3],
+//     [3, 2, 1],
+//   ])
+// );
+
+// Задача 4
+
+// Учитывая целое число num, вернуть количество шагов, чтобы уменьшить его до нуля
+// За один шаг, если текущее число четное, вы должны разделить его на 2,
+// в противном случае вы должны вычесть 1из него.
+// Пример 1:
+
+// Ввод: число = 14
+//  Вывод: 6
+//  Объяснение:
+// Шаг 1) 14 четно; делим на 2 и получаем 7.
+// Шаг 2) 7 нечетно; вычтите 1 и получите 6.
+// Шаг 3) 6 четно; делим на 2 и получаем 3.
+// Шаг 4) 3 нечетно; вычесть 1 и получить 2.
+// Шаг 5) 2 четно; делим на 2 и получаем 1.
+// Шаг 6) 1 нечетное; вычесть 1 и получить 0.
+
+var numberOfSteps = function (num) {
+  let count = 0;
+  while (num > 0) {
+    if (num % 2 === 0) {
+      num /= 2;
+    } else {
+      num -= 1;
+    }
+    count += 1;
+  }
+  return count;
+};
+
+console.log(numberOfSteps(14)); // 6
