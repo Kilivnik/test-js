@@ -140,17 +140,46 @@
 // Шаг 5) 2 четно; делим на 2 и получаем 1.
 // Шаг 6) 1 нечетное; вычесть 1 и получить 0.
 
-var numberOfSteps = function (num) {
-  let count = 0;
-  while (num > 0) {
-    if (num % 2 === 0) {
-      num /= 2;
-    } else {
-      num -= 1;
-    }
-    count += 1;
-  }
-  return count;
-};
+// var numberOfSteps = function (num) {
+//   let count = 0;
+//   while (num > 0) {
+//     if (num % 2 === 0) {
+//       num /= 2;
+//     } else {
+//       num -= 1;
+//     }
+//     count += 1;
+//   }
+//   return count;
+// };
 
-console.log(numberOfSteps(14)); // 6
+// console.log(numberOfSteps(14)); // 6
+
+// Задача 5
+// Вам дано бинарное дерево, состоящее ровно из узлов: корня,
+// его левого дочернего элемента и его правого дочернего root элемент
+// Возврат true, если значение корня равно сумме значений двух его дочерних элементов,
+// или в false противном случае.
+// Пример 1:
+
+// Ввод: root = [10,4,6]
+//  Вывод: true
+//  Объяснение: Значения корня, его левого дочернего элемента и его правого дочернего элемента равны 10, 4 и 6 соответственно.
+// 10 равно 4 + 6, поэтому мы возвращаем true.
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+// /**
+//  * @param {TreeNode} root
+//  * @return {boolean}
+//  */
+// var checkTree = function (root) {};
+let genres = ["Jazz", "5"];
+const rusult = genres[0] * genres[1];
+console.log(rusult);
