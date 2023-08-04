@@ -180,6 +180,6 @@
 //  * @return {boolean}
 //  */
 // var checkTree = function (root) {};
-let genres = ["Jazz", "5"];
-const rusult = genres[0] * genres[1];
-console.log(rusult);
+// let genres = ["Jazz", "5"];
+// const rusult = genres[0] * genres[1];
+// console.log(rusult);

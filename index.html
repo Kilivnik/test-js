@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,16 +11,162 @@
 <body>
     <h1>Починаєм займатись)</h1>
 
+    <ul class="site-nav">
+        <li class="site-nav__item">
+            <a href="" class="site-nav__link">Про нас</a>
+        </li>
+        <li class="site-nav__item">
+            <a href="" class="site-nav__link">Портфоліо</a>
+        </li>
+        <li class="site-nav__item">
+            <a href="" class="site-nav__link">Контакти</a>
+        </li>
+    </ul>
+
     <!-- <script src="/js/script1.js"></script> -->
-    <!-- <script src="/js/script2.js"></script> -->
-    <script src="/js/script3.js"></script>
-    <!-- <script src="/js/script4.js"></script> -->
+<!-- <script src="/js/script2.js"></script> -->
+<!-- <script src="/js/script3.js"></script> -->
+<!-- <script src="/js/script4.js"></script> -->
+<script src="/js/script6.js"></script>
 
-    <!-- <script src="/js/leetcode.js"></script> -->
+<script src="/js/leetcode.js"></script>
 
 
+</body>
+
+</html> -->
 
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 id="title" class="header__title">freeCodeCamp Survey Form</h1>
+            <p id="description">
+                Thank you for taking the time to help us improve the platform
+            </p>
+        </header>
+
+
+        <form id="survey-form">
+            <div class="block-form">
+                <label id="name-label" for="name">Name
+                    <input id="name" name="name" type="text" placeholder="Enter your name" required />
+                </label>
+            </div>
+
+            <div class="block-form">
+                <label id="email-label" for="email">Email
+                    <input id="email" name="email" type="email" placeholder="Enter your Email" required
+                        pattern="[a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}" />
+                </label>
+            </div>
+
+            <div class="block-form">
+                <label id="number-label" for="number">Age (optional)
+                    <input id="number" name="number" type="number" min="10" max="99" placeholder="Age" />
+                </label>
+            </div>
+
+            <div class="block-form">
+                <p>Which option best describes your current role?</p>
+                <select id="dropdown" name="role" required>
+                    <option value="">Select current role</option>
+                    <option value="student">Student</option>
+                    <option value="job">Full Time Job</option>
+                    <option value="learner">Full Time Learner</option>
+                    <option value="preferNo">Prefer not to say</option>
+                    <option value="other">Other</option>
+                </select>
+
+            </div>
+
+
+            <div class="block-form">
+                <p>Would you recommend freeCodeCamp to a friend?</p>
+                <label>
+                    <input type="radio" name="recommend" value="definitely" checked>Definitely
+                </label>
+                <label>
+                    <input type="radio" name="recommend" value="maybe">Maybe
+                </label>
+                <label>
+                    <input type="radio" name="recommend" value="not">Not sure
+                </label>
+            </div>
+
+            <div class="block-form">
+                <p>What is your favorite feature of freeCodeCamp?</p>
+                <select name="favorite" id="favorite" required>
+                    <option disabled value selected>Select an option</option>
+                    <option value="challenges">Challenges</option>
+                    <option value="projects">Projects</option>
+                    <option value="community">Community</option>
+                    <option value="openSource">Open Source</option>
+                </select>
+            </div>
+
+            <div class="block-form">
+                <p>What would you like to see improved?
+                    <span>(Check all that apply)</span>
+                </p>
+                <label>
+                    <input name="prefer" type="checkbox" value="front"> Front-end Projects
+                </label>
+                <label>
+                    <input name="prefer" type="checkbox" value="back"> Back-end Projects
+                </label>
+                <label>
+                    <input name="prefer" type="checkbox" value="data"> Data Visualization
+                </label>
+                <label>
+                    <input name="prefer" type="checkbox" value="challenges"> Challenges
+                </label>
+                <label>
+                    <input name="prefer" type="checkbox" value="openSource"> Open Source Community
+                </label>
+                <label>
+                    <input name="prefer" type="checkbox" value="gitter"> Gitter help rooms
+                </label>
+                <label>
+                    <input name="prefer" type="checkbox" value="videos"> Videos
+                </label>
+                <label>
+                    <input name="prefer" type="checkbox" value="meetups"> City Meetups
+                </label>
+                <label>
+                    <input name="prefer" type="checkbox" value="wiki"> Wiki
+                </label>
+                <label>
+                    <input name="prefer" type="checkbox" value="forum"> Forum
+                </label>
+                <label>
+                    <input name="prefer" type="checkbox" value="courses"> Additional Courses
+                </label>
+
+            </div>
+
+            <div class="block-form">
+                <p>Any comments or suggestions?</p>
+                <textarea id="comments" name="comment" placeholder="Enter your comment here..."></textarea>
+
+            </div>
+
+            <div class="block-form">
+                <button class="button" id="submit" type="submit">Submit</button>
+            </div>
+
+
+        </form>
+    </div>
 </body>
 
 </html>
