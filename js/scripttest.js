@@ -297,4 +297,4 @@ console.log(loadGrain([]));
 
 // Ответ: 961 страница.
 
-console.log(1);
+// console.log(1);

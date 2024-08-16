@@ -467,21 +467,80 @@ console.log(Math.floor(Math.random() * (max - min + 1)) + min); // 50 - числ
 // console.log(cutIt(["codewars", "javascript", "java"])); // ["code","java","java"]
 // console.log(5);
 
-const products = [
-  { name: "Radar", price: 1300, quantity: 4 },
-  { name: "Scanner", price: 2700, quantity: 3 },
-  { name: "Droid", price: 400, quantity: 7 },
-  { name: "Grip", price: 1200, quantity: 9 },
-];
+// const products = [
+//   { name: "Radar", price: 1300, quantity: 4 },
+//   { name: "Scanner", price: 2700, quantity: 3 },
+//   { name: "Droid", price: 400, quantity: 7 },
+//   { name: "Grip", price: 1200, quantity: 9 },
+// ];
 
-function calculateTotalPrice(productName) {
-  for (const prod of products) {
-    if (prod.name === productName) {
-      return prod.price * prod.quantity;
-    }
-  }
-  return 0;
-}
+// function calculateTotalPrice(productName) {
+//   for (const prod of products) {
+//     if (prod.name === productName) {
+//       return prod.price * prod.quantity;
+//     }
+//   }
+//   return 0;
+// }
 
-console.log(calculateTotalPrice("Radar"));
-console.log(calculateTotalPrice("Blaster"));
+// console.log(calculateTotalPrice("Radar"));
+// console.log(calculateTotalPrice("Blaster"));
+
+// Задача 24
+// В залежності від оператора ф - ція виконує математ дії з числами
+
+// function basicOp(operation, value1, value2) {
+//   switch (operation) {
+//     case "+":
+//       return value1 + value2;
+//     case "-":
+//       return value1 - value2;
+//     case "*":
+//       return value1 * value2;
+//     case "/":
+//       return value1 / value2;
+//     default:
+//       return "Operation must be one of + - * /";
+//   }
+// }
+
+
+// Задача 25
+// З рядка де 1 елемент число(к - ть років) треба витягнути значення цього числа
+
+// function getAge(inputString) {
+//   const strArray = Array.from(inputString); // переводимо рядок в масив
+//   return parseInt(strArray); // переводимо елемент в число
+// }
+
+// console.log(getAge("4 years old"), 4);
+
+// Задача 26
+//Изограмма — это слово, в котором нет повторяющихся букв, последовательных или непоследовательных.
+// Реализуйте функцию, которая определяет, является ли строка, содержащая только буквы, изограммой.
+//   Предположим, что пустая строка — изограмма.Игнорировать регистр букв.
+
+ // Рішення 1
+// function isIsogram(str) {
+//   str = str.toLowerCase();
+
+//   for (var i = 0; i < str.length; i += 1) {
+//     if (str.indexOf(str.charAt(i), i + 1) >= 0) {
+//       return false;
+//     }
+//   }
+
+//   return true;
+// }
+ 
+// Рішення 2
+// function isIsogram(str) {
+//   return new Set(str.toUpperCase()).size == str.length;
+// }
+
+// console.log(isIsogram("Dermatoglyphics")); //true
+// console.log(isIsogram("isIsogram")); //false
+// console.log(isIsogram("")); //true
+
+
+
